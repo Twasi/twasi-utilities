@@ -1,0 +1,12 @@
+twasi.utilities.check.nofollow=You don't follow %s.
+twasi.utilities.check.following=%s, du folgst %s bereits seit dem %s (also bereits %s).
+twasi.utilities.check.requestfailed=The date could not be queried.
+twasi.utilities.units.hours=hours
+twasi.utilities.units.hour=hour
+twasi.utilities.units.days=days
+twasi.utilities.units.day=day
+twasi.utilities.units.months=months
+twasi.utilities.units.month=month
+twasi.utilities.units.years=years
+twasi.utilities.units.year=year
+twasi.utilities.units.dateformat=MM/dd/yyyy

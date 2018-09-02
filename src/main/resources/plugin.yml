@@ -1,0 +1,18 @@
+name: "Twasi Utilities"
+main: de.merlinw.twasi.Utilities
+author: Twasi Team
+description: Basic Twasi Utilities Plugin.
+helpText: "Check how long you've followed a channel using !check"
+version: 1.0
+
+messageHandler: false
+
+commands:
+  - check
+  - wiki
+  - title
+  - game
+
+permissions:
+  - twasi.utilities.mod.title
+  - twasi.utilities.mod.game
