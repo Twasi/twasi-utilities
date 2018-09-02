@@ -1,6 +1,22 @@
 twasi.utilities.check.nofollow=You don't follow %s.
-twasi.utilities.check.following=%s, du folgst %s bereits seit dem %s (also bereits %s).
+twasi.utilities.check.following=%s, you follow %s since %s (already %s).
 twasi.utilities.check.requestfailed=The date could not be queried.
+
+twasi.utilities.game.helptext=Please write !game [New Game]
+twasi.utilities.game.changed=The current game has been successfully changed: %s
+twasi.utilities.game.requestfailed=The game could not be changed.
+
+twasi.utilities.title.helptext=Please write !title [New Title]
+twasi.utilities.title.changed= The current title has been successfully changed: %s
+twasi.utilities.title.requestfailed=The title could not be changed.
+
+twasi.utilities.wiki.apiprefix=en
+twasi.utilities.wiki.helptext=Please write !wiki [Search]
+twasi.utilities.wiki.noresult=No results found for "%s".
+twasi.utilities.wiki.requestfailed=Results for "%s" could not be queried.
+twasi.utilities.wiki.result=%s I forgot the rest, take a look here: %s MingLee
+twasi.utilities.wiki.correct=Nothing was found for "%s". Did you mean perhaps "%s"?
+
 twasi.utilities.units.hours=hours
 twasi.utilities.units.hour=hour
 twasi.utilities.units.days=days
