@@ -1,20 +1,20 @@
 twasi.utilities.check.nofollow=Du folgst %s nicht.
-twasi.utilities.check.following=%s, du folgst %s bereits seit dem %s (also schon %s).
+twasi.utilities.check.following=%s, du folgst %s bereits seit dem %s (also schon %s). SeemsGood
 twasi.utilities.check.requestfailed=Das Datum konnte nicht abgefragt werden.
 
-twasi.utilities.game.helptext=Bitte schreibe !game [Neues Spiel]
+twasi.utilities.game.helptext=Bitte schreibe "!game [Neues Spiel]"
 twasi.utilities.game.changed=Das aktuelle Spiel wurde erfolgreich geändert: %s
 twasi.utilities.game.requestfailed=Das Spiel konnte nicht geändert werden.
 
-twasi.utilities.title.helptext=Bitte schreibe !title [Neuer Titel]
+twasi.utilities.title.helptext=Bitte schreibe "!title [Neuer Titel]"
 twasi.utilities.title.changed=Der aktuelle Titel wurde erfolgreich geändert: %s
 twasi.utilities.title.requestfailed=Der Titel konnte nicht geändert werden.
 
 twasi.utilities.wiki.apiprefix=de
-twasi.utilities.wiki.helptext=Bitte schreibe !wiki [Suche]
+twasi.utilities.wiki.helptext=Bitte schreibe "!wiki [Suche]"
 twasi.utilities.wiki.noresult=Für "%s" wurde leider kein Ergebnis gefunden.
 twasi.utilities.wiki.requestfailed=Ergebnisse für "%s" konnten nicht abgefragt werden.
-twasi.utilities.wiki.result=%s Den Rest habe ich vergessen, schau doch hier nach: %s MingLee
+twasi.utilities.wiki.result=%s Den Rest habe ich vergessen, schau doch mal hier: %s MingLee
 twasi.utilities.wiki.correct=Für "%s" wurde nichts gefunden. Meintest du vielleicht "%s"?
 
 twasi.utilities.units.hours=Stunden

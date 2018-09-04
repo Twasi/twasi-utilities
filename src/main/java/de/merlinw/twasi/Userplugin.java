@@ -17,13 +17,17 @@ public class Userplugin extends TwasiUserPlugin {
 
     @Override
     public void onInstall(TwasiInstallEvent e) {
+        e.getAdminGroup().addKey("twasi.utilities.streamer.*");
         e.getModeratorsGroup().addKey("twasi.utilities.mod.*");
+        e.getDefaultGroup().addKey("twasi.utilities.default.*");
         super.onInstall(e);
     }
 
     @Override
     public void onUninstall(TwasiInstallEvent e) {
+        e.getAdminGroup().removeKey("twasi.utilities.streamer.*");
         e.getModeratorsGroup().removeKey("twasi.utilities.mod.*");
+        e.getDefaultGroup().removeKey("twasi.utilities.default.*");
         super.onUninstall(e);
     }
 

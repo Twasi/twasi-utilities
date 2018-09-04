@@ -7,7 +7,7 @@ import org.mongodb.morphia.annotations.Reference;
 
 import java.util.Date;
 
-@Entity(value = "Twasi.Utilities.check", noClassnameStored = true)
+@Entity(value = "Twasi.Utilities.Check", noClassnameStored = true)
 public class CheckEntity extends BaseEntity {
 
     @Reference

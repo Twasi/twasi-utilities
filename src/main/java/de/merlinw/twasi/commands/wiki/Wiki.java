@@ -1,15 +1,12 @@
 package de.merlinw.twasi.commands.wiki;
 
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.thoughtworks.proxy.toys.nullobject.Null;
 import de.merlinw.twasi.Utilities;
 import de.merlinw.twasi.commands.BaseCommand;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
 import net.twasi.core.plugin.api.events.TwasiCommandEvent;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 public class Wiki extends BaseCommand {
@@ -51,7 +48,6 @@ public class Wiki extends BaseCommand {
 
     private class WikipediaArticle{
         private String text, url;
-        private boolean fromDatabase;
 
         private WikipediaArticle(String text, String url){
             this.text = text;
@@ -64,10 +60,6 @@ public class Wiki extends BaseCommand {
 
         public String getUrl() {
             return url;
-        }
-
-        public boolean isFromDatabase() {
-            return fromDatabase;
         }
     }
 }

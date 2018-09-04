@@ -1,10 +1,8 @@
 package de.merlinw.twasi.commands.check;
 
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import de.merlinw.twasi.commands.BaseCommand;
 import de.merlinw.twasi.Utilities;
-import net.twasi.core.database.models.TwitchAccount;
+import de.merlinw.twasi.commands.BaseCommand;
 import net.twasi.core.database.models.User;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
 import net.twasi.core.plugin.api.events.TwasiCommandEvent;
@@ -77,6 +75,6 @@ public class Check extends BaseCommand {
                 streamer.getUser().getTwitchAccount().getDisplayName(),
                 new SimpleDateFormat(plugin.getTranslation("twasi.utilities.units.dateformat")).format(date),
                 timeSinceFollow
-        ) + " SeemsGood";
+        );
     }
 }
