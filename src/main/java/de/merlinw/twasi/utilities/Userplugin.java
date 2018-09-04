@@ -1,12 +1,11 @@
-package de.merlinw.twasi;
+package de.merlinw.twasi.utilities;
 
-import de.merlinw.twasi.commands.BaseCommand;
-import de.merlinw.twasi.commands.check.Check;
-import de.merlinw.twasi.commands.game.Game;
-import de.merlinw.twasi.commands.title.Title;
-import de.merlinw.twasi.commands.wiki.Wiki;
-import de.merlinw.twasi.cooldown.Cooldown;
-import net.twasi.core.database.models.TwitchAccount;
+import de.merlinw.twasi.utilities.commands.BaseCommand;
+import de.merlinw.twasi.utilities.commands.check.Check;
+import de.merlinw.twasi.utilities.commands.game.Game;
+import de.merlinw.twasi.utilities.commands.title.Title;
+import de.merlinw.twasi.utilities.commands.wiki.Wiki;
+import de.merlinw.twasi.utilities.cooldown.Cooldown;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
 import net.twasi.core.plugin.api.events.TwasiCommandEvent;
 import net.twasi.core.plugin.api.events.TwasiInstallEvent;

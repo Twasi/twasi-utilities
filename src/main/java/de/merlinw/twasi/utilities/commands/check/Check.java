@@ -1,8 +1,8 @@
-package de.merlinw.twasi.commands.check;
+package de.merlinw.twasi.utilities.commands.check;
 
 import com.google.gson.JsonObject;
-import de.merlinw.twasi.Utilities;
-import de.merlinw.twasi.commands.BaseCommand;
+import de.merlinw.twasi.utilities.Plugin;
+import de.merlinw.twasi.utilities.commands.BaseCommand;
 import net.twasi.core.database.models.User;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
 import net.twasi.core.plugin.api.events.TwasiCommandEvent;
@@ -33,7 +33,7 @@ public class Check extends BaseCommand {
         if (entity == null) {
             try {
                 JsonObject object = parser.parse(
-                        Utilities.getApiContent("https://api.twitch.tv/kraken/users/" + executor.getUserName() + "/follows/channels/" + streamer.getUser().getTwitchAccount().getUserName() + "?client_id=" + clientId)
+                        Plugin.getApiContent("https://api.twitch.tv/kraken/users/" + executor.getUserName() + "/follows/channels/" + streamer.getUser().getTwitchAccount().getUserName() + "?client_id=" + clientId)
                 ).getAsJsonObject();
                 if (object.has("created_at")) {
                     date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").parse(object.get("created_at").getAsString());

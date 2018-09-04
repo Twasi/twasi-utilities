@@ -1,4 +1,4 @@
-package de.merlinw.twasi;
+package de.merlinw.twasi.utilities;
 
 import net.twasi.core.plugin.TwasiPlugin;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
-public class Utilities extends TwasiPlugin {
+public class Plugin extends TwasiPlugin {
     public Class<? extends TwasiUserPlugin> getUserPluginClass() {
         return Userplugin.class;
     }

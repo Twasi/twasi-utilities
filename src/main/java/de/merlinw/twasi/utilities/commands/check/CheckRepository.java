@@ -1,4 +1,4 @@
-package de.merlinw.twasi.commands.check;
+package de.merlinw.twasi.utilities.commands.check;
 
 import net.twasi.core.database.lib.Repository;
 import net.twasi.core.database.models.User;

@@ -1,11 +1,9 @@
-package de.merlinw.twasi.commands.game;
+package de.merlinw.twasi.utilities.commands.game;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import de.merlinw.twasi.Utilities;
-import de.merlinw.twasi.commands.BaseCommand;
+import de.merlinw.twasi.utilities.Plugin;
+import de.merlinw.twasi.utilities.commands.BaseCommand;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
 import net.twasi.core.plugin.api.events.TwasiCommandEvent;
 import org.jetbrains.annotations.NotNull;
@@ -19,7 +17,7 @@ public class Game extends BaseCommand {
 
     public Game(@NotNull TwasiCommandEvent e, @NotNull TwasiUserPlugin plugin) {
         super(e, plugin);
-        this.game = Utilities.getCommandArgs(this.command);
+        this.game = Plugin.getCommandArgs(this.command);
     }
 
     @Override
@@ -35,7 +33,7 @@ public class Game extends BaseCommand {
         insideObejct.add("game", new JsonPrimitive(this.game));
         object.add("channel", insideObejct);
         try {
-            Utilities.putApiContent("https://api.twitch.tv/kraken/channels/"
+            Plugin.putApiContent("https://api.twitch.tv/kraken/channels/"
                     + streamer.getUser().getTwitchAccount().getTwitchId() + "?client_id=" + clientId
                     + "&client_secret=" + clientSecret, header, object.toString());
             return plugin.getTranslation("twasi.utilities.game.changed", this.game);

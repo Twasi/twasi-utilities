@@ -1,6 +1,6 @@
-package de.merlinw.twasi.cooldown;
+package de.merlinw.twasi.utilities.cooldown;
 
-import de.merlinw.twasi.commands.BaseCommand;
+import de.merlinw.twasi.utilities.commands.BaseCommand;
 import jdk.nashorn.internal.ir.annotations.Reference;
 import net.twasi.core.database.models.BaseEntity;
 import net.twasi.core.database.models.User;

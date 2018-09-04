@@ -1,8 +1,8 @@
-package de.merlinw.twasi.commands.wiki;
+package de.merlinw.twasi.utilities.commands.wiki;
 
 import com.google.gson.JsonObject;
-import de.merlinw.twasi.Utilities;
-import de.merlinw.twasi.commands.BaseCommand;
+import de.merlinw.twasi.utilities.Plugin;
+import de.merlinw.twasi.utilities.commands.BaseCommand;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
 import net.twasi.core.plugin.api.events.TwasiCommandEvent;
 import org.jetbrains.annotations.NotNull;
@@ -14,7 +14,7 @@ public class Wiki extends BaseCommand {
 
     public Wiki(@NotNull TwasiCommandEvent e, @NotNull TwasiUserPlugin plugin) {
         super(e, plugin);
-        this.query = Utilities.getCommandArgs(this.command);
+        this.query = Plugin.getCommandArgs(this.command);
     }
 
     @Override
@@ -24,7 +24,7 @@ public class Wiki extends BaseCommand {
         String url = "https://" + apiPrefix + ".wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=" + URLEncoder.encode(this.query.replaceAll(" ", "_"));
         JsonObject object = new JsonObject();
         try {
-            object = parser.parse(Utilities.getApiContent(url)).getAsJsonObject();
+            object = parser.parse(Plugin.getApiContent(url)).getAsJsonObject();
             JsonObject pages = object.get("query").getAsJsonObject().get("pages").getAsJsonObject();
             JsonObject page = pages.get((String) (pages.keySet()).toArray()[0]).getAsJsonObject();
             String article = page.get("extract").getAsString();
