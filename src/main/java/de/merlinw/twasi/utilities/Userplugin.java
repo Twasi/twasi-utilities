@@ -19,7 +19,6 @@ public class Userplugin extends TwasiUserPlugin {
         e.getAdminGroup().addKey("twasi.utilities.streamer.*");
         e.getModeratorsGroup().addKey("twasi.utilities.mod.*");
         e.getDefaultGroup().addKey("twasi.utilities.default.*");
-        super.onInstall(e);
     }
 
     @Override
@@ -27,7 +26,6 @@ public class Userplugin extends TwasiUserPlugin {
         e.getAdminGroup().removeKey("twasi.utilities.streamer.*");
         e.getModeratorsGroup().removeKey("twasi.utilities.mod.*");
         e.getDefaultGroup().removeKey("twasi.utilities.default.*");
-        super.onUninstall(e);
     }
 
     @Override

@@ -1,10 +1,10 @@
 package de.merlinw.twasi.utilities.cooldown;
 
 import de.merlinw.twasi.utilities.commands.BaseCommand;
-import jdk.nashorn.internal.ir.annotations.Reference;
 import net.twasi.core.database.models.BaseEntity;
 import net.twasi.core.database.models.User;
 import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Reference;
 
 import java.util.Calendar;
 

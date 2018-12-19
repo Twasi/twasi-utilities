@@ -1,7 +1,6 @@
 package de.merlinw.twasi.utilities.commands;
 
 import com.google.gson.JsonParser;
-import net.twasi.core.database.models.AccessToken;
 import net.twasi.core.database.models.TwitchAccount;
 import net.twasi.core.models.Streamer;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
@@ -29,16 +28,10 @@ public abstract class BaseCommand {
     protected String commandName;
     protected String command;
 
-    // Current Twitch API-Token
-    protected String twitchToken;
-
     // Constructor for setting variables
     public BaseCommand(@NotNull TwasiCommandEvent e, @NotNull TwasiUserPlugin plugin) {
         this.plugin = plugin;
         this.event = e;
-        AccessToken token = plugin.getTwasiInterface().getStreamer().getUser().getTwitchAccount().getToken();
-        token.refresh();
-        twitchToken = token.getAccessToken();
         executor = e.getCommand().getSender();
         streamer = plugin.getTwasiInterface().getStreamer();
         commandName = e.getCommand().getCommandName();

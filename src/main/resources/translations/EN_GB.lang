@@ -1,5 +1,6 @@
 twasi.utilities.check.nofollow=You don't follow %s.
 twasi.utilities.check.following=%s, you follow %s since %s (already %s). SeemsGood
+twasi.utilities.check.selfcheck=If you want to follow yourself please create another Twitch-account, %s! 4Head
 twasi.utilities.check.requestfailed=The date could not be queried.
 
 twasi.utilities.game.helptext=Please write "!game [New Game]"
@@ -14,8 +15,8 @@ twasi.utilities.wiki.apiprefix=en
 twasi.utilities.wiki.helptext=Please write "!wiki [Search]"
 twasi.utilities.wiki.noresult=No results found for "%s".
 twasi.utilities.wiki.requestfailed=Results for "%s" could not be queried.
-twasi.utilities.wiki.result=%s I forgot the rest, take a look here: %s MingLee
-twasi.utilities.wiki.correct=Nothing was found for "%s". Did you mean "%s" instead?
+twasi.utilities.wiki.result=%s... I forgot the rest, take a look here: %s MingLee
+twasi.utilities.wiki.suggestion=Nothing was found for "%s" but I found this for "%s":
 
 twasi.utilities.units.hours=hours
 twasi.utilities.units.hour=hour

@@ -2,7 +2,7 @@ name: "Twasi Utilities"
 main: de.merlinw.twasi.utilities.Plugin
 author: Twasi Team
 description: Basic Twasi Utilities Plugin.
-helpText: "Check how long you've followed a channel using !check"
+helpText: "Basic functionality for Twasi!"
 version: 1.0
 
 messageHandler: false
