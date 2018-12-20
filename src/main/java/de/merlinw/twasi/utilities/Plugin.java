@@ -34,15 +34,4 @@ public class Plugin extends TwasiPlugin {
         HttpEntity entity = response.getEntity();
         return EntityUtils.toString(entity);
     }
-
-    public static String getCommandArgs(String command){
-        String rt = "";
-        String[] arr = command.split(" ");
-        if(arr.length > 1) {
-            String[] copArr = new String[arr.length - 1];
-            System.arraycopy(arr, 1, copArr, 0, arr.length - 1);
-            for (String s : copArr) if(s != null && !s.equals("")) rt += s + " ";
-            return rt.substring(0, rt.length() - 1);
-        } else return null;
-    }
 }

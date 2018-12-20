@@ -1,17 +1,17 @@
 package de.merlinw.twasi.utilities.commands.wiki;
 
-import de.merlinw.twasi.utilities.Plugin;
 import de.merlinw.twasi.utilities.commands.BaseCommand;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
 import net.twasi.core.plugin.api.events.TwasiCommandEvent;
 import org.jetbrains.annotations.NotNull;
 
 public class Wiki extends BaseCommand {
+
     private String query;
 
     public Wiki(@NotNull TwasiCommandEvent e, @NotNull TwasiUserPlugin plugin) {
         super(e, plugin);
-        this.query = Plugin.getCommandArgs(this.command);
+        this.query = commandArgs;
     }
 
     @Override
@@ -22,7 +22,9 @@ public class Wiki extends BaseCommand {
 
         WikiArticle article = new WikiArticle(this.query, this.plugin.getTranslation("twasi.utilities.wiki.apiprefix"));
 
-        int shorten = article.getContent().length() - 1;
+        int shorten = 500;
+        if (article.getContent() != null)
+            shorten = article.getContent().length() - 1;
         String message;
         switch (article.getState()) {
             case NO_RESULT:

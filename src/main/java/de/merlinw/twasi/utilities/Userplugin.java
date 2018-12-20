@@ -5,7 +5,6 @@ import de.merlinw.twasi.utilities.commands.check.Check;
 import de.merlinw.twasi.utilities.commands.game.Game;
 import de.merlinw.twasi.utilities.commands.title.Title;
 import de.merlinw.twasi.utilities.commands.wiki.Wiki;
-import de.merlinw.twasi.utilities.cooldown.Cooldown;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
 import net.twasi.core.plugin.api.events.TwasiCommandEvent;
 import net.twasi.core.plugin.api.events.TwasiInstallEvent;
@@ -30,7 +29,7 @@ public class Userplugin extends TwasiUserPlugin {
 
     @Override
     public void onCommand(TwasiCommandEvent e) {
-        Cooldown cooldown = new Cooldown(e.getCommand().getSender().getTwitchId(), getTwasiInterface().getStreamer().getUser(), getUserCooldown());
+        // Cooldown cooldown = new Cooldown(e.getCommand().getSender().getTwitchId(), getTwasiInterface().getStreamer().getUser(), getUserCooldown());
 
         BaseCommand command = null;
         switch(e.getCommand().getCommandName().toLowerCase()){
@@ -44,11 +43,12 @@ public class Userplugin extends TwasiUserPlugin {
                 command = new Game(e, this);
                 break;
             case "title":
+            case "status":
                 command = new Title(e, this);
                 break;
         }
 
-        /*if(command != null && cooldown.executeCommand(command.getClass()))*/ command.executeCommand();
+        if (command != null) command.executeCommand();
     }
 
     private long getUserCooldown() {

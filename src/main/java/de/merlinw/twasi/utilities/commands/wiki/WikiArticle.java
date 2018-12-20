@@ -142,6 +142,7 @@ public class WikiArticle {
     }
 
     public String getURL() {
+        if (this.title == null) return null;
         return "https://" + this.languageCode + ".wikipedia.org/wiki/" + UriEncoder.encode(this.title);
     }
 
