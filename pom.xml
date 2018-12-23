@@ -37,13 +37,13 @@
         <dependency>
             <groupId>net.twasi</groupId>
             <artifactId>twitch-web-api</artifactId>
-            <version>0.0.1-20181215.172012-6</version>
+            <version>0.0.1-SNAPSHOT</version>
             <type>pom</type>
         </dependency>
         <dependency>
             <groupId>net.twasi</groupId>
             <artifactId>TwasiCore</artifactId>
-            <version>0.0.1-20181219.192351-10</version>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

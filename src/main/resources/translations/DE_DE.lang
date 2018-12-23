@@ -1,7 +1,10 @@
-twasi.utilities.check.nofollow=Du folgst %s nicht.
-twasi.utilities.check.following=%s, du folgst %s bereits seit dem %s (also schon %s). SeemsGood
+twasi.utilities.check.nofollow.self=%s, du folgst %s nicht. BibleThump
+twasi.utilities.check.nofollow.other=%s folgt %s nicht. BibleThump
+twasi.utilities.check.following.self=%s, du folgst %s bereits seit dem %s (also schon %s). SeemsGood
+twasi.utilities.check.following.other=%s folgt %s bereits seit dem %s (also schon %s). PogChamp
 twasi.utilities.check.selfcheck=Wenn du dir selbst folgen möchtest, dann erstelle dir doch bitte einen neuen Twitch-Account, %s! 4Head
-twasi.utilities.check.requestfailed=Das Datum konnte nicht abgefragt werden.
+twasi.utilities.check.requestfailed=Das Datum konnte nicht abgefragt werden. :(
+twasi.utilities.check.usernotfound=Der Nutzer '%s' konnte nicht gefunden werden. BibleThump
 
 twasi.utilities.game.helptext=Bitte schreibe "!game [Neues Spiel]"
 twasi.utilities.game.changed=Das aktuelle Spiel wurde erfolgreich geändert: %s

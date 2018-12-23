@@ -137,8 +137,16 @@ public class WikiArticle {
         return title;
     }
 
-    public String getContent() {
+    public String getProperlyFormattedContent() {
         return content;
+    }
+
+    public String getContent() {
+        if (content == null) return null;
+        return content
+                .replaceAll("\n+", " - ")
+                .replaceAll("\r+", " - ")
+                .replaceAll("- -", "-");
     }
 
     public String getURL() {

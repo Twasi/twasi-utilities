@@ -7,6 +7,9 @@ import net.twasi.core.plugin.api.TwasiUserPlugin;
 import net.twasi.core.plugin.api.events.TwasiCommandEvent;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
+import java.util.List;
+
 public abstract class BaseCommand {
 
     // static variables
@@ -48,6 +51,21 @@ public abstract class BaseCommand {
     // Void to reply to the command
     protected void reply(String text) {
         this.event.getCommand().reply(text);
+    }
+
+    // Function to get command args as list
+    protected List<String> getCommandArgsAsList() {
+        if (this.commandArgs == null || this.commandArgs.equals("")) return null;
+        return Arrays.asList(this.commandArgs.split(" "));
+    }
+
+    // Function to get specific command arg
+    protected String getCommandArg(int num) {
+        try {
+            return getCommandArgsAsList().get(num);
+        } catch (Exception e){
+            return null;
+        }
     }
 
     // Extract command args from message

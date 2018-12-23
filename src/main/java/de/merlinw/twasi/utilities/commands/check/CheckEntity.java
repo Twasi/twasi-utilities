@@ -2,6 +2,7 @@ package de.merlinw.twasi.utilities.commands.check;
 
 import net.twasi.core.database.models.BaseEntity;
 import net.twasi.core.database.models.User;
+import net.twasi.core.models.Streamer;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Reference;
 
@@ -23,6 +24,10 @@ public class CheckEntity extends BaseEntity {
         this.user = user;
         this.date = date;
         this.twitchId = twitchId;
+    }
+
+    public CheckEntity(Streamer streamer, String twitchId, Date date) {
+        this(streamer.getUser(), twitchId, date);
     }
 
     public Date getDate() {
