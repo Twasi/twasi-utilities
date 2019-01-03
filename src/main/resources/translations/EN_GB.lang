@@ -6,13 +6,15 @@ twasi.utilities.check.selfcheck=If you want to follow yourself please create ano
 twasi.utilities.check.requestfailed=The date could not be queried. :(
 twasi.utilities.check.usernotfound=The user '%s' could not be found. BibleThump
 
-twasi.utilities.game.helptext=Please write "!game [New Game]"
-twasi.utilities.game.changed=The current game has been successfully changed: %s
-twasi.utilities.game.requestfailed=The game could not be changed.
+twasi.utilities.game.change=The current game has been successfully changed: %s
+twasi.utilities.game.change.failed=The game could not be changed. BibleThump
+twasi.utilities.game.info=The current game is: %s
+twasi.utilities.game.info.failed=The current game could not be queried. :(
 
-twasi.utilities.title.helptext=Please write "!title [New Title]"
 twasi.utilities.title.changed= The current title has been successfully changed: %s
-twasi.utilities.title.requestfailed=The title could not be changed.
+twasi.utilities.title.requestfailed=The title could not be changed. BibleThump
+twasi.utilities.title.info=The current title is: %s
+twasi.utilities.title.info.failed=The current title could not be queried. :(
 
 twasi.utilities.wiki.apiprefix=en
 twasi.utilities.wiki.helptext=Please write "!wiki [Search]"

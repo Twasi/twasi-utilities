@@ -3,6 +3,7 @@ package de.merlinw.twasi.utilities.commands.game;
 import de.merlinw.twasi.utilities.commands.BaseCommand;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
 import net.twasi.core.plugin.api.events.TwasiCommandEvent;
+import net.twasi.twitchapi.kraken.channels.response.ChannelDTO;
 import org.jetbrains.annotations.NotNull;
 
 import static net.twasi.twitchapi.TwitchAPI.kraken;
@@ -18,14 +19,14 @@ public class Game extends BaseCommand {
 
     @Override
     protected String getCommandOutput() {
-        if (!this.streamer.getUser().hasPermission(this.executor, "twasi.utilities.mod.game"))
-            return null;
-
-        if (this.game == null)
-            return plugin.getTranslation("twasi.utilities.game.helptext");
+        if (!this.streamer.getUser().hasPermission(this.executor, "twasi.utilities.mod.game") || this.game == null) {
+            ChannelDTO channelDTO = kraken().channels().withAuth(streamer.getUser().getTwitchAccount().toAuthContext()).updateChannel(null, null);
+            if (channelDTO != null) return plugin.getTranslation("twasi.utilities.game.info", channelDTO.getGame());
+            return plugin.getTranslation("twasi.utilities.game.info.failed");
+        }
 
         boolean success = kraken().channels().withAuth(this.streamer.getUser().getTwitchAccount().toAuthContext()).updateChannel(null, this.game) != null;
-        if (success) return plugin.getTranslation("twasi.utilities.game.changed", this.game);
-        else return plugin.getTranslation("twasi.utilities.game.requestfailed");
+        if (success) return plugin.getTranslation("twasi.utilities.game.change", this.game);
+        else return plugin.getTranslation("twasi.utilities.game.change.failed");
     }
 }
