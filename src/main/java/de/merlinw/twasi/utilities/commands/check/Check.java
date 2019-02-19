@@ -8,6 +8,7 @@ import net.twasi.core.services.providers.DataService;
 import net.twasi.twitchapi.helix.users.Users;
 import net.twasi.twitchapi.helix.users.response.UserDTO;
 import net.twasi.twitchapi.helix.users.response.UserFollowDTO;
+import net.twasi.twitchapi.options.TwitchRequestOptions;
 import org.jetbrains.annotations.NotNull;
 
 import java.text.SimpleDateFormat;
@@ -52,8 +53,7 @@ public class Check extends BaseCommand {
             UserDTO userDto;
             if (this.checkMode == CheckMode.SELF) dto = request.getFollowedBy(executor.getTwitchId());
             else {
-                List<UserDTO> user = helix().users().getUsers(null, new String[]{this.userToCheck});
-                System.out.println(this.userToCheck);
+                List<UserDTO> user = helix().users().getUsers(null, new String[]{this.userToCheck}, new TwitchRequestOptions().withAuth(streamer.getUser().getTwitchAccount().toAuthContext()));
                 if (user != null && user.size() > 0) {
                     userDto = user.get(0);
                     dto = request.getFollowedBy(userDto.getId());
