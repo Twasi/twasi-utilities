@@ -23,6 +23,13 @@ twasi.utilities.wiki.requestfailed=Ergebnisse für "%s" konnten nicht abgefragt 
 twasi.utilities.wiki.result=%s... Den Rest habe ich vergessen, schau doch mal hier: %s MingLee
 twasi.utilities.wiki.suggestion=Für "%s" wurde nichts gefunden, aber ich habe das Folgende für "%s" gefunden:
 
+twasi.utilities.uptime.onlinesince=%s ist bereits seit %s online SeemsGood
+twasi.utilities.uptime.notonline=%s ist doch gar nicht online DansGame
+
+twasi.utilities.units.seconds=Sekunden
+twasi.utilities.units.second=Sekunde
+twasi.utilities.units.minutes=Minuten
+twasi.utilities.units.minute=Minute
 twasi.utilities.units.hours=Stunden
 twasi.utilities.units.hour=Stunde
 twasi.utilities.units.days=Tage
