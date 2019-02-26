@@ -6,6 +6,7 @@ import net.twasi.core.plugin.api.events.TwasiInstallEvent;
 import net.twasiplugin.utilities.commands.BaseCommand;
 import net.twasiplugin.utilities.commands.check.Check;
 import net.twasiplugin.utilities.commands.game.Game;
+import net.twasiplugin.utilities.commands.hosts.Hosts;
 import net.twasiplugin.utilities.commands.title.Title;
 import net.twasiplugin.utilities.commands.uptime.Uptime;
 import net.twasiplugin.utilities.commands.wiki.Wiki;
@@ -49,6 +50,9 @@ public class Userplugin extends TwasiUserPlugin {
                 break;
             case "uptime":
                 command = new Uptime(e, this);
+                break;
+            case "hosts":
+                command = new Hosts(e, this);
                 break;
         }
 

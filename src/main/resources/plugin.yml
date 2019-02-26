@@ -14,6 +14,7 @@ commands:
   - status
   - game
   - uptime
+  - hosts
 
 permissions:
   - twasi.utilities.mod.title
