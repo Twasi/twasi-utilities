@@ -23,7 +23,8 @@ twasi.utilities.wiki.requestfailed=Results for "%s" could not be queried.
 twasi.utilities.wiki.result=%s... I forgot the rest, take a look here: %s MingLee
 twasi.utilities.wiki.suggestion=Nothing was found for "%s" but I found this for "%s":
 
-twasi.utilities.uptime.onlinesince=%s is online since %s SeemsGood
+twasi.utilities.uptime.onlinesince.sentence=%s is online since %s SeemsGood
+twasi.utilities.uptime.onlinesince.spacer=and
 twasi.utilities.uptime.notonline=%s is not even online DansGame
 
 twasi.utilities.units.seconds=seconds

@@ -1,14 +1,14 @@
 package net.twasiplugin.utilities;
 
+import net.twasi.core.plugin.api.TwasiUserPlugin;
+import net.twasi.core.plugin.api.events.TwasiCommandEvent;
+import net.twasi.core.plugin.api.events.TwasiInstallEvent;
 import net.twasiplugin.utilities.commands.BaseCommand;
 import net.twasiplugin.utilities.commands.check.Check;
 import net.twasiplugin.utilities.commands.game.Game;
 import net.twasiplugin.utilities.commands.title.Title;
 import net.twasiplugin.utilities.commands.uptime.Uptime;
 import net.twasiplugin.utilities.commands.wiki.Wiki;
-import net.twasi.core.plugin.api.TwasiUserPlugin;
-import net.twasi.core.plugin.api.events.TwasiCommandEvent;
-import net.twasi.core.plugin.api.events.TwasiInstallEvent;
 
 import java.time.Duration;
 
@@ -33,9 +33,9 @@ public class Userplugin extends TwasiUserPlugin {
         // Cooldown cooldown = new Cooldown(e.getCommand().getSender().getTwitchId(), getTwasiInterface().getStreamer().getUser(), getUserCooldown());
 
         BaseCommand command = null;
-        switch(e.getCommand().getCommandName().toLowerCase()){
+        switch (e.getCommand().getCommandName().toLowerCase()) {
             case "check":
-                command = new Check(e,this);
+                command = new Check(e, this);
                 break;
             case "wiki":
                 command = new Wiki(e, this);

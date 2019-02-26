@@ -11,6 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import java.time.Duration;
 import java.util.Calendar;
 
+import static java.time.Duration.*;
 import static net.twasi.twitchapi.TwitchAPI.helix;
 
 public class Uptime extends BaseCommand {
@@ -24,26 +25,49 @@ public class Uptime extends BaseCommand {
         TwitchAccount twitchacc = streamer.getUser().getTwitchAccount();
         try {
             StreamDTO stream = helix().streams().getStreamsByUser(twitchacc.getTwitchId(), 1, new TwitchRequestOptions().withAuth(twitchacc.toAuthContext())).getData().get(0);
-            Duration duration = Duration.ofMillis(Calendar.getInstance().getTimeInMillis() - stream.getStartedAt().getTime());
-            return plugin.getTranslation("twasi.utilities.uptime.onlinesince", twitchacc.getDisplayName(), formTimeUnitFromDuration(duration));
-        } catch (Exception e){
+            Duration duration = ofMillis(Calendar.getInstance().getTimeInMillis() - stream.getStartedAt().getTime());
+            return plugin.getTranslation("twasi.utilities.uptime.onlinesince.sentence", twitchacc.getDisplayName(), formTimeUnitFromDuration(duration));
+        } catch (Exception e) {
             return plugin.getTranslation("twasi.utilities.uptime.notonline", twitchacc.getDisplayName());
         }
     }
 
     public String formTimeUnitFromDuration(Duration duration) {
-        long amount = duration.getSeconds();
-        String unit = "second";
-        if (amount > 60) {
-            amount /= 60;
-            unit = "minute";
+        long days = duration.toDays(), hours = duration.minus(ofDays(days)).toHours(), mins = duration.minus(ofHours(hours)).toMinutes(), secs = duration.minus(ofMinutes(mins)).getSeconds();
+        String key = "twasi.utilities.units.", spacer = "twasi.utilities.uptime.onlinesince.spacer";
+        if (days > 0) {
+            return String.format(
+                    "%d %s, %d %s %s %d %s", // "1 day, 9 hours and 45 minutes" f.e.
+                    days,
+                    plugin.getTranslation(key + ((days == 1) ? "day" : "days")),
+                    hours,
+                    plugin.getTranslation(key + ((hours == 1) ? "hour" : "hours")),
+                    plugin.getTranslation(spacer),
+                    mins,
+                    plugin.getTranslation(key + ((mins == 1) ? "minute" : "minutes"))
+            );
         }
-        if (amount > 60) {
-            amount /= 60;
-            unit = "hour";
+        if (hours > 0) {
+            return String.format(
+                    "%d %s %s %d %s", // "3 hours and 34 minutes" f.e.
+                    hours,
+                    plugin.getTranslation(key + ((hours == 1) ? "hour" : "hours")),
+                    plugin.getTranslation(spacer),
+                    mins,
+                    plugin.getTranslation(key + ((mins == 1) ? "minute" : "minutes"))
+            );
         }
-        if (amount != 1) unit += "s";
-        return amount + " " + plugin.getTranslation("twasi.utilities.units." + unit);
+        if (mins > 0) {
+            return String.format(
+                    "%d %s %s %d %s", // "43 minutes and 23 seconds" f.e.
+                    mins,
+                    plugin.getTranslation(key + ((mins == 1) ? "minute" : "minutes")),
+                    plugin.getTranslation(spacer),
+                    secs,
+                    plugin.getTranslation(key + ((secs == 1) ? "second" : "seconds"))
+            );
+        }
+        return String.format("%d %s", secs, plugin.getTranslation(key + ((secs == 1) ? "second" : "seconds")));
     }
 
 }
