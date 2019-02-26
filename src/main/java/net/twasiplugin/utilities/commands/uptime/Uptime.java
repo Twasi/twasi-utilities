@@ -1,6 +1,6 @@
-package de.merlinw.twasi.utilities.commands.uptime;
+package net.twasiplugin.utilities.commands.uptime;
 
-import de.merlinw.twasi.utilities.commands.BaseCommand;
+import net.twasiplugin.utilities.commands.BaseCommand;
 import net.twasi.core.database.models.TwitchAccount;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
 import net.twasi.core.plugin.api.events.TwasiCommandEvent;

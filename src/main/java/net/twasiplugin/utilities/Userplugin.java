@@ -1,11 +1,11 @@
-package de.merlinw.twasi.utilities;
+package net.twasiplugin.utilities;
 
-import de.merlinw.twasi.utilities.commands.BaseCommand;
-import de.merlinw.twasi.utilities.commands.check.Check;
-import de.merlinw.twasi.utilities.commands.game.Game;
-import de.merlinw.twasi.utilities.commands.title.Title;
-import de.merlinw.twasi.utilities.commands.uptime.Uptime;
-import de.merlinw.twasi.utilities.commands.wiki.Wiki;
+import net.twasiplugin.utilities.commands.BaseCommand;
+import net.twasiplugin.utilities.commands.check.Check;
+import net.twasiplugin.utilities.commands.game.Game;
+import net.twasiplugin.utilities.commands.title.Title;
+import net.twasiplugin.utilities.commands.uptime.Uptime;
+import net.twasiplugin.utilities.commands.wiki.Wiki;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
 import net.twasi.core.plugin.api.events.TwasiCommandEvent;
 import net.twasi.core.plugin.api.events.TwasiInstallEvent;

@@ -1,6 +1,6 @@
-package de.merlinw.twasi.utilities.commands.check;
+package net.twasiplugin.utilities.commands.check;
 
-import de.merlinw.twasi.utilities.commands.BaseCommand;
+import net.twasiplugin.utilities.commands.BaseCommand;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
 import net.twasi.core.plugin.api.events.TwasiCommandEvent;
 import net.twasi.core.services.ServiceRegistry;

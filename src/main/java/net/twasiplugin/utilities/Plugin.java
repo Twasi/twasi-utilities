@@ -1,4 +1,4 @@
-package de.merlinw.twasi.utilities;
+package net.twasiplugin.utilities;
 
 import net.twasi.core.plugin.TwasiPlugin;
 import net.twasi.core.plugin.api.TwasiUserPlugin;

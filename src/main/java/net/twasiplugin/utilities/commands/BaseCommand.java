@@ -1,4 +1,4 @@
-package de.merlinw.twasi.utilities.commands;
+package net.twasiplugin.utilities.commands;
 
 import com.google.gson.JsonParser;
 import net.twasi.core.database.models.TwitchAccount;

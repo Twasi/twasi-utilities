@@ -1,5 +1,5 @@
 name: "Twasi Utilities"
-main: de.merlinw.twasi.utilities.Plugin
+main: Plugin
 author: Twasi Team
 description: Basic Twasi Utilities Plugin.
 helpText: "Basic functionality for Twasi!"

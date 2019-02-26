@@ -1,16 +1,16 @@
-package de.merlinw.twasi.utilities.commands.wiki;
+package net.twasiplugin.utilities.commands.wiki;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import de.merlinw.twasi.utilities.Plugin;
+import net.twasiplugin.utilities.Plugin;
 import org.yaml.snakeyaml.util.UriEncoder;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static de.merlinw.twasi.utilities.commands.wiki.WikiArticle.QueryState.*;
+import static net.twasiplugin.utilities.commands.wiki.WikiArticle.QueryState.*;
 
 public class WikiArticle {
 
