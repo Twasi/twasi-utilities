@@ -3,34 +3,40 @@ package net.twasiplugin.utilities.commands.hosts;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import net.twasi.core.database.models.TwitchAccount;
+import net.twasi.core.plugin.api.TwasiCustomCommand;
+import net.twasi.core.plugin.api.TwasiCustomCommandEvent;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
-import net.twasi.core.plugin.api.events.TwasiCommandEvent;
 import net.twasiplugin.utilities.Plugin;
-import net.twasiplugin.utilities.commands.BaseCommand;
-import org.jetbrains.annotations.NotNull;
 
-public class Hosts extends BaseCommand {
+public class Hosts extends TwasiCustomCommand {
 
-    public Hosts(@NotNull TwasiCommandEvent e, @NotNull TwasiUserPlugin plugin) {
-        super(e, plugin);
+    public Hosts(TwasiUserPlugin plugin) {
+        super(plugin);
+    }
+
+    public String getCommandName() {
+        return "hosts";
     }
 
     @Override
-    protected String getCommandOutput() {
+    public void process(TwasiCustomCommandEvent event) {
         try {
-            TwitchAccount streamer = this.streamer.getUser().getTwitchAccount();
-            JsonObject object = parser.parse(Plugin.getApiContent("https://tmi.twitch.tv/hosts?include_logins=1&target=" + streamer.getTwitchId())).getAsJsonObject();
+            TwitchAccount streamer = event.getStreamer().getUser().getTwitchAccount();
+            JsonObject object = new JsonParser().parse(Plugin.getApiContent("https://tmi.twitch.tv/hosts?include_logins=1&target=" + streamer.getTwitchId())).getAsJsonObject();
             JsonArray streamers = object.get("hosts").getAsJsonArray();
-            if (streamers.size() == 0)
-                return plugin.getTranslation("twasi.utilities.hosts.nohoster", streamer.getDisplayName());
+            if (streamers.size() == 0) {
+                event.reply(getTranslation("twasi.utilities.hosts.nohoster", streamer.getDisplayName()));
+                return;
+            }
             String streamerUserNames = "";
             for (JsonElement elem : streamers) {
                 streamerUserNames += ", " + elem.getAsJsonObject().get("host_display_name").getAsString();
             }
-            return plugin.getTranslation("twasi.utilities.hosts.success", streamer.getDisplayName(), streamerUserNames.substring(2));
+            event.reply(getTranslation("twasi.utilities.hosts.success", streamer.getDisplayName(), streamerUserNames.substring(2)));
         } catch (Exception e) {
-            return plugin.getTranslation("twasi.utilities.hosts.failed");
+            event.reply(getTranslation("twasi.utilities.hosts.failed"));
         }
     }
 

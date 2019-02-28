@@ -1,32 +1,35 @@
 package net.twasiplugin.utilities.commands.game;
 
-import net.twasiplugin.utilities.commands.BaseCommand;
+import net.twasi.core.models.Streamer;
+import net.twasi.core.plugin.api.TwasiCustomCommand;
+import net.twasi.core.plugin.api.TwasiCustomCommandEvent;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
-import net.twasi.core.plugin.api.events.TwasiCommandEvent;
 import net.twasi.twitchapi.kraken.channels.response.ChannelDTO;
-import org.jetbrains.annotations.NotNull;
 
 import static net.twasi.twitchapi.TwitchAPI.kraken;
 
-public class Game extends BaseCommand {
+public class Game extends TwasiCustomCommand {
 
-    private String game;
-
-    public Game(@NotNull TwasiCommandEvent e, @NotNull TwasiUserPlugin plugin) {
-        super(e, plugin);
-        this.game = commandArgs;
+    public Game(TwasiUserPlugin plugin) {
+        super(plugin);
     }
 
     @Override
-    protected String getCommandOutput() {
-        if (!this.streamer.getUser().hasPermission(this.executor, "twasi.utilities.mod.game") || this.game == null) {
-            ChannelDTO channelDTO = kraken().channels().withAuth(streamer.getUser().getTwitchAccount().toAuthContext()).updateChannel(null, null);
-            if (channelDTO != null) return plugin.getTranslation("twasi.utilities.game.info", channelDTO.getGame());
-            return plugin.getTranslation("twasi.utilities.game.info.failed");
-        }
+    public String getCommandName() {
+        return "game";
+    }
 
-        boolean success = kraken().channels().withAuth(this.streamer.getUser().getTwitchAccount().toAuthContext()).updateChannel(null, this.game) != null;
-        if (success) return plugin.getTranslation("twasi.utilities.game.change", this.game);
-        else return plugin.getTranslation("twasi.utilities.game.change.failed");
+    @Override
+    public void process(TwasiCustomCommandEvent event) {
+        Streamer streamer = event.getStreamer();
+        if (streamer.getUser().hasPermission(event.getSender(), "twasi.utilities.mod.game") || !event.hasArgs()) {
+            ChannelDTO channelDTO = kraken().channels().withAuth(streamer.getUser().getTwitchAccount().toAuthContext()).updateChannel(null, null);
+            if (channelDTO != null) event.reply(getTranslation("twasi.utilities.game.info", channelDTO.getGame()));
+            else event.reply(getTranslation("twasi.utilities.game.info.failed"));
+        }
+        String game = event.getArgsAsOne();
+        boolean success = kraken().channels().withAuth(streamer.getUser().getTwitchAccount().toAuthContext()).updateChannel(null, game) != null;
+        if (success) event.reply(getTranslation("twasi.utilities.game.change", game));
+        else event.reply(getTranslation("twasi.utilities.game.change.failed"));
     }
 }

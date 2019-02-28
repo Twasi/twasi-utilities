@@ -1,9 +1,8 @@
 package net.twasiplugin.utilities;
 
+import net.twasi.core.plugin.api.TwasiCustomCommand;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
-import net.twasi.core.plugin.api.events.TwasiCommandEvent;
 import net.twasi.core.plugin.api.events.TwasiInstallEvent;
-import net.twasiplugin.utilities.commands.BaseCommand;
 import net.twasiplugin.utilities.commands.check.Check;
 import net.twasiplugin.utilities.commands.game.Game;
 import net.twasiplugin.utilities.commands.hosts.Hosts;
@@ -11,9 +10,22 @@ import net.twasiplugin.utilities.commands.title.Title;
 import net.twasiplugin.utilities.commands.uptime.Uptime;
 import net.twasiplugin.utilities.commands.wiki.Wiki;
 
-import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Userplugin extends TwasiUserPlugin {
+
+    private List<TwasiCustomCommand> commands = new ArrayList<>();
+
+    public Userplugin() {
+        // Register commands
+        commands.add(new Check(this));
+        commands.add(new Game(this));
+        commands.add(new Hosts(this));
+        commands.add(new Title(this));
+        commands.add(new Uptime(this));
+        commands.add(new Wiki(this));
+    }
 
     @Override
     public void onInstall(TwasiInstallEvent e) {
@@ -30,37 +42,7 @@ public class Userplugin extends TwasiUserPlugin {
     }
 
     @Override
-    public void onCommand(TwasiCommandEvent e) {
-        // Cooldown cooldown = new Cooldown(e.getCommand().getSender().getTwitchId(), getTwasiInterface().getStreamer().getUser(), getUserCooldown());
-
-        BaseCommand command = null;
-        switch (e.getCommand().getCommandName().toLowerCase()) {
-            case "check":
-                command = new Check(e, this);
-                break;
-            case "wiki":
-                command = new Wiki(e, this);
-                break;
-            case "game":
-                command = new Game(e, this);
-                break;
-            case "title":
-            case "status":
-                command = new Title(e, this);
-                break;
-            case "uptime":
-                command = new Uptime(e, this);
-                break;
-            case "hosts":
-                command = new Hosts(e, this);
-                break;
-        }
-
-        if (command != null) command.executeCommand();
-    }
-
-    private long getUserCooldown() {
-        Duration cooldownDuration = Duration.ofMinutes(3);
-        return cooldownDuration.toMillis();
+    public List<TwasiCustomCommand> getCommands() {
+        return commands;
     }
 }

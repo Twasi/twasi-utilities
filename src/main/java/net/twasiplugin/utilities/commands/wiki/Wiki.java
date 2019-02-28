@@ -1,26 +1,29 @@
 package net.twasiplugin.utilities.commands.wiki;
 
-import net.twasiplugin.utilities.commands.BaseCommand;
+import net.twasi.core.plugin.api.TwasiCustomCommand;
+import net.twasi.core.plugin.api.TwasiCustomCommandEvent;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
-import net.twasi.core.plugin.api.events.TwasiCommandEvent;
-import org.jetbrains.annotations.NotNull;
 
-public class Wiki extends BaseCommand {
+public class Wiki extends TwasiCustomCommand {
 
-    private String query;
-
-    public Wiki(@NotNull TwasiCommandEvent e, @NotNull TwasiUserPlugin plugin) {
-        super(e, plugin);
-        this.query = commandArgs;
+    public Wiki(TwasiUserPlugin plugin) {
+        super(plugin);
     }
 
     @Override
-    protected String getCommandOutput() {
+    public String getCommandName() {
+        return "wiki";
+    }
 
-        if (this.query == null || this.query.equals("") || this.query.equals(" "))
-            return this.plugin.getTranslation("twasi.utilities.wiki.helptext");
+    @Override
+    public void process(TwasiCustomCommandEvent event) {
+        if (!event.hasArgs()) {
+            event.reply(getTranslation("twasi.utilities.wiki.helptext"));
+            return;
+        }
 
-        WikiArticle article = new WikiArticle(this.query, this.plugin.getTranslation("twasi.utilities.wiki.apiprefix"));
+        String query = event.getArgsAsOne();
+        WikiArticle article = new WikiArticle(query, getTranslation("twasi.utilities.wiki.apiprefix"));
 
         int shorten = 500;
         if (article.getProperlyFormattedContent() != null)
@@ -28,22 +31,25 @@ public class Wiki extends BaseCommand {
         String message;
         switch (article.getState()) {
             case NO_RESULT:
-                return plugin.getTranslation("twasi.utilities.wiki.noresult", this.query);
+                event.reply(getTranslation("twasi.utilities.wiki.noresult", query));
+                return;
             case SUGGESTION:
-                String prefix = plugin.getTranslation("twasi.utilities.wiki.suggestion", this.query, article.getContentQuery()) + " ";
-                String suffix = plugin.getTranslation("twasi.utilities.wiki.result", article.getContent(), article.getURL());
+                String prefix = getTranslation("twasi.utilities.wiki.suggestion", query, article.getContentQuery()) + " ";
+                String suffix = getTranslation("twasi.utilities.wiki.result", article.getContent(), article.getURL());
                 message = prefix + suffix;
                 while (message.length() > 400)
-                    message = prefix + plugin.getTranslation("twasi.utilities.wiki.result", article.getContent().substring(0, --shorten), article.getURL());
-                return message;
+                    message = prefix + getTranslation("twasi.utilities.wiki.result", article.getContent().substring(0, --shorten), article.getURL());
+                event.reply(message);
+                return;
             case QUERY_ERROR:
             default:
-                return plugin.getTranslation("twasi.utilities.wiki.requestfailed", this.query);
+                event.reply(getTranslation("twasi.utilities.wiki.requestfailed", query));
+                return;
             case OK:
-                message = plugin.getTranslation("twasi.utilities.wiki.result", article.getContent(), article.getURL());
+                message = getTranslation("twasi.utilities.wiki.result", article.getContent(), article.getURL());
                 while (message.length() > 400)
-                    message = plugin.getTranslation("twasi.utilities.wiki.result", article.getContent().substring(0, --shorten), article.getURL());
-                return message;
+                    message = getTranslation("twasi.utilities.wiki.result", article.getContent().substring(0, --shorten), article.getURL());
+                event.reply(message);
         }
     }
 }
