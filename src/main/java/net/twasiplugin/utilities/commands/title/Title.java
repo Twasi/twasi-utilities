@@ -22,7 +22,6 @@ public class Title extends TwasiCustomCommand {
     @Override
     public void process(TwasiCustomCommandEvent event) {
         Streamer streamer = event.getStreamer();
-
         if (!streamer.getUser().hasPermission(event.getSender(), "twasi.utilities.mod.title") || !event.hasArgs()) {
             ChannelDTO channelDTO = kraken().channels().withAuth(streamer.getUser().getTwitchAccount().toAuthContext()).updateChannel(null, null);
             if (channelDTO != null) event.reply(getTranslation("twasi.utilities.title.info", channelDTO.getStatus()));
