@@ -13,7 +13,7 @@ twasi.utilities.game.info.failed=Das Spiel konnte nicht abgefragt werden. :(
 
 twasi.utilities.title.change=Der aktuelle Titel wurde erfolgreich geändert: %s
 twasi.utilities.title.change.failed=requestfailed=Der Titel konnte nicht geändert werden. BibleThump
-twasi.utilities.title.info=Der aktuelle Title lautet: %s
+twasi.utilities.title.info=Der aktuelle Titel lautet: %s
 twasi.utilities.title.info.failed=Der Titel konnte nicht abgefragt werden. :(
 
 twasi.utilities.wiki.apiprefix=de

@@ -25,11 +25,8 @@ public class Title extends TwasiCustomCommand {
 
         if (!streamer.getUser().hasPermission(event.getSender(), "twasi.utilities.mod.title") || !event.hasArgs()) {
             ChannelDTO channelDTO = kraken().channels().withAuth(streamer.getUser().getTwitchAccount().toAuthContext()).updateChannel(null, null);
-            if (channelDTO != null) {
-                event.reply(getTranslation("twasi.utilities.title.info", channelDTO.getStatus()));
-                return;
-            }
-            event.reply(getTranslation("twasi.utilities.title.info.failed"));
+            if (channelDTO != null) event.reply(getTranslation("twasi.utilities.title.info", channelDTO.getStatus()));
+            else event.reply(getTranslation("twasi.utilities.title.info.failed"));
             return;
         }
         String title = event.getArgsAsOne();

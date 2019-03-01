@@ -26,6 +26,7 @@ public class Game extends TwasiCustomCommand {
             ChannelDTO channelDTO = kraken().channels().withAuth(streamer.getUser().getTwitchAccount().toAuthContext()).updateChannel(null, null);
             if (channelDTO != null) event.reply(getTranslation("twasi.utilities.game.info", channelDTO.getGame()));
             else event.reply(getTranslation("twasi.utilities.game.info.failed"));
+            return;
         }
         String game = event.getArgsAsOne();
         boolean success = kraken().channels().withAuth(streamer.getUser().getTwitchAccount().toAuthContext()).updateChannel(null, game) != null;
