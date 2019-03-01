@@ -74,4 +74,8 @@ public class Uptime extends TwasiCustomCommand {
         return String.format("%d %s", secs, getTranslation(key + ((secs == 1) ? "second" : "seconds")));
     }
 
+    @Override
+    public boolean allowsTimer() {
+        return true;
+    }
 }

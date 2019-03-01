@@ -40,4 +40,8 @@ public class Hosts extends TwasiCustomCommand {
         }
     }
 
+    @Override
+    public boolean allowsTimer() {
+        return true;
+    }
 }
