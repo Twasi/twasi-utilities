@@ -5,12 +5,12 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import net.twasi.core.database.models.TwitchAccount;
-import net.twasi.core.plugin.api.TwasiCustomCommand;
-import net.twasi.core.plugin.api.TwasiCustomCommandEvent;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
+import net.twasi.core.plugin.api.customcommands.TwasiCustomCommandEvent;
+import net.twasi.core.plugin.api.customcommands.TwasiPluginCommand;
 import net.twasiplugin.utilities.Plugin;
 
-public class Hosts extends TwasiCustomCommand {
+public class Hosts extends TwasiPluginCommand {
 
     public Hosts(TwasiUserPlugin plugin) {
         super(plugin);

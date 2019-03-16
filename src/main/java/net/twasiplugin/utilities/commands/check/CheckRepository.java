@@ -20,6 +20,4 @@ public class CheckRepository extends Repository<CheckEntity> {
         return getCheckEntityByUserAndTwitchId(streamer.getUser(), twitchId);
     }
 
-
-
 }

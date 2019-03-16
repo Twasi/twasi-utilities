@@ -44,3 +44,8 @@ twasi.utilities.units.month=Monat
 twasi.utilities.units.years=Jahre
 twasi.utilities.units.year=Jahr
 twasi.utilities.units.dateformat=dd.MM.yyyy
+
+twasi.utilities.variables.readapi.errorreturncontent=Fehler BibleThump
+twasi.utilities.variables.readapi.missingargument=Die ReadAPI-Varible benötigt einen Link als argument LUL
+twasi.utilities.variables.readapi.insecurelink=Die ReadAPI-Varible benötigt einen sicheren Link (https://...) als argument SMOrc
+twasi.utilities.variables.readapi.badresult=Fehler bei der API-Abfrage ANELE

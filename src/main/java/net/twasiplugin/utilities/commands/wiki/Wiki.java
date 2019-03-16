@@ -1,10 +1,10 @@
 package net.twasiplugin.utilities.commands.wiki;
 
-import net.twasi.core.plugin.api.TwasiCustomCommand;
-import net.twasi.core.plugin.api.TwasiCustomCommandEvent;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
+import net.twasi.core.plugin.api.customcommands.TwasiCustomCommandEvent;
+import net.twasi.core.plugin.api.customcommands.TwasiPluginCommand;
 
-public class Wiki extends TwasiCustomCommand {
+public class Wiki extends TwasiPluginCommand {
 
     public Wiki(TwasiUserPlugin plugin) {
         super(plugin);

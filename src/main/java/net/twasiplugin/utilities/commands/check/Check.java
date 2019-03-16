@@ -2,9 +2,9 @@ package net.twasiplugin.utilities.commands.check;
 
 import net.twasi.core.database.models.TwitchAccount;
 import net.twasi.core.models.Streamer;
-import net.twasi.core.plugin.api.TwasiCustomCommand;
-import net.twasi.core.plugin.api.TwasiCustomCommandEvent;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
+import net.twasi.core.plugin.api.customcommands.TwasiCustomCommandEvent;
+import net.twasi.core.plugin.api.customcommands.TwasiPluginCommand;
 import net.twasi.core.services.ServiceRegistry;
 import net.twasi.core.services.providers.DataService;
 import net.twasi.twitchapi.helix.users.Users;
@@ -20,7 +20,7 @@ import java.util.List;
 
 import static net.twasi.twitchapi.TwitchAPI.helix;
 
-public class Check extends TwasiCustomCommand {
+public class Check extends TwasiPluginCommand {
 
     private CheckRepository repo = ServiceRegistry.get(DataService.class).get(CheckRepository.class);
 

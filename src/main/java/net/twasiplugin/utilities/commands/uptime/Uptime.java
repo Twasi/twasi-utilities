@@ -1,9 +1,9 @@
 package net.twasiplugin.utilities.commands.uptime;
 
 import net.twasi.core.database.models.TwitchAccount;
-import net.twasi.core.plugin.api.TwasiCustomCommand;
-import net.twasi.core.plugin.api.TwasiCustomCommandEvent;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
+import net.twasi.core.plugin.api.customcommands.TwasiCustomCommandEvent;
+import net.twasi.core.plugin.api.customcommands.TwasiPluginCommand;
 import net.twasi.twitchapi.helix.streams.response.StreamDTO;
 import net.twasi.twitchapi.options.TwitchRequestOptions;
 
@@ -13,7 +13,7 @@ import java.util.Calendar;
 import static java.time.Duration.*;
 import static net.twasi.twitchapi.TwitchAPI.helix;
 
-public class Uptime extends TwasiCustomCommand {
+public class Uptime extends TwasiPluginCommand {
 
     public Uptime(TwasiUserPlugin plugin) {
         super(plugin);

@@ -1,7 +1,8 @@
 package net.twasiplugin.utilities;
 
-import net.twasi.core.plugin.api.TwasiCustomCommand;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
+import net.twasi.core.plugin.api.TwasiVariable;
+import net.twasi.core.plugin.api.customcommands.TwasiPluginCommand;
 import net.twasi.core.plugin.api.events.TwasiInstallEvent;
 import net.twasiplugin.utilities.commands.check.Check;
 import net.twasiplugin.utilities.commands.game.Game;
@@ -9,13 +10,15 @@ import net.twasiplugin.utilities.commands.hosts.Hosts;
 import net.twasiplugin.utilities.commands.title.Title;
 import net.twasiplugin.utilities.commands.uptime.Uptime;
 import net.twasiplugin.utilities.commands.wiki.Wiki;
+import net.twasiplugin.utilities.variables.readapi.ReadAPI;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Userplugin extends TwasiUserPlugin {
 
-    private List<TwasiCustomCommand> commands = new ArrayList<>();
+    private List<TwasiPluginCommand> commands = new ArrayList<>();
+    private List<TwasiVariable> variables = new ArrayList<>();
 
     public Userplugin() {
         // Register commands
@@ -25,6 +28,8 @@ public class Userplugin extends TwasiUserPlugin {
         commands.add(new Title(this));
         commands.add(new Uptime(this));
         commands.add(new Wiki(this));
+        // Register variables
+        variables.add(new ReadAPI(this));
     }
 
     @Override
@@ -42,7 +47,12 @@ public class Userplugin extends TwasiUserPlugin {
     }
 
     @Override
-    public List<TwasiCustomCommand> getCommands() {
+    public List<TwasiPluginCommand> getCommands() {
         return commands;
+    }
+
+    @Override
+    public List<TwasiVariable> getVariables() {
+        return variables;
     }
 }

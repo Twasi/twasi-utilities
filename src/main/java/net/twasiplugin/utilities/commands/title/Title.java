@@ -1,14 +1,14 @@
 package net.twasiplugin.utilities.commands.title;
 
 import net.twasi.core.models.Streamer;
-import net.twasi.core.plugin.api.TwasiCustomCommand;
-import net.twasi.core.plugin.api.TwasiCustomCommandEvent;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
+import net.twasi.core.plugin.api.customcommands.TwasiCustomCommandEvent;
+import net.twasi.core.plugin.api.customcommands.TwasiPluginCommand;
 import net.twasi.twitchapi.kraken.channels.response.ChannelDTO;
 
 import static net.twasi.twitchapi.TwitchAPI.kraken;
 
-public class Title extends TwasiCustomCommand {
+public class Title extends TwasiPluginCommand {
 
     public Title(TwasiUserPlugin plugin) {
         super(plugin);
