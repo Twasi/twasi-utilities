@@ -1,5 +1,7 @@
 package net.twasiplugin.utilities;
 
+import net.twasi.core.interfaces.api.TwasiInterface;
+import net.twasi.core.models.Message.TwasiMessage;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
 import net.twasi.core.plugin.api.TwasiVariable;
 import net.twasi.core.plugin.api.customcommands.TwasiPluginCommand;
@@ -10,9 +12,9 @@ import net.twasiplugin.utilities.commands.hosts.Hosts;
 import net.twasiplugin.utilities.commands.title.Title;
 import net.twasiplugin.utilities.commands.uptime.Uptime;
 import net.twasiplugin.utilities.commands.wiki.Wiki;
-import net.twasiplugin.utilities.variables.readapi.ReadAPI;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Userplugin extends TwasiUserPlugin {
@@ -29,7 +31,17 @@ public class Userplugin extends TwasiUserPlugin {
         commands.add(new Uptime(this));
         commands.add(new Wiki(this));
         // Register variables
-        variables.add(new ReadAPI(this));
+        variables.add(new TwasiVariable(this) {
+            @Override
+            public List<String> getNames() {
+                return Collections.singletonList("sender");
+            }
+
+            @Override
+            public String process(String name, TwasiInterface inf, String[] params, TwasiMessage message) {
+                return message.getSender().getDisplayName();
+            }
+        });
     }
 
     @Override
