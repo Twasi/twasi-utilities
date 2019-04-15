@@ -24,6 +24,7 @@ public class Hosts extends TwasiPluginCommand {
     public void process(TwasiCustomCommandEvent event) {
         try {
             TwitchAccount streamer = event.getStreamer().getUser().getTwitchAccount();
+            if (streamer.getUserName().equalsIgnoreCase("spendendose")) return;
             JsonObject object = new JsonParser().parse(Plugin.getApiContent("https://tmi.twitch.tv/hosts?include_logins=1&target=" + streamer.getTwitchId())).getAsJsonObject();
             JsonArray streamers = object.get("hosts").getAsJsonArray();
             if (streamers.size() == 0) {
