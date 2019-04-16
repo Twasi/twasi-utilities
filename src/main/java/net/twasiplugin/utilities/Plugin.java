@@ -28,7 +28,8 @@ public class Plugin extends TwasiPlugin {
         RequestConfig config = RequestConfig.custom()
                 .setConnectTimeout(timeout * 1000)
                 .setConnectionRequestTimeout(timeout * 1000)
-                .setSocketTimeout(timeout * 1000).build();
+                .setSocketTimeout(timeout * 1000)
+                .build();
         CloseableHttpClient httpClient = HttpClientBuilder.create().setDefaultRequestConfig(config).build();
         HttpResponse response = httpClient.execute(request);
         HttpEntity entity = response.getEntity();
