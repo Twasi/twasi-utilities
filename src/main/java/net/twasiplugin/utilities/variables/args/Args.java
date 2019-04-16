@@ -32,7 +32,9 @@ public class Args extends TwasiVariable {
                 if (argNum < 0) argNum = 0;
                 return fakeEvent.getArgs().get(argNum);
             } else {
-                return fakeEvent.getArgsAsOne();
+                String args = fakeEvent.getArgsAsOne();
+                if (args == null) return "";
+                return args;
             }
         } catch (Exception e) {
             return "";
