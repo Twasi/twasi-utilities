@@ -19,3 +19,12 @@ commands:
 permissions:
   - twasi.utilities.mod.title
   - twasi.utilities.mod.game
+
+api: |
+  type Utilities {
+    updateTitle(title: String): Boolean,
+    updateGame(game: String): Boolean,
+    updateChannel(title: String, game: String): Boolean,
+    getTitle: String,
+    getGame: String
+  }

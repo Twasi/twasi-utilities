@@ -1,7 +1,9 @@
 package net.twasiplugin.utilities;
 
+import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import net.twasi.core.plugin.TwasiPlugin;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
+import net.twasiplugin.utilities.api.UtilitiesResolver;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.config.RequestConfig;
@@ -34,5 +36,10 @@ public class Plugin extends TwasiPlugin {
         HttpResponse response = httpClient.execute(request);
         HttpEntity entity = response.getEntity();
         return EntityUtils.toString(entity);
+    }
+
+    @Override
+    public GraphQLQueryResolver getGraphQLResolver() {
+        return new UtilitiesResolver();
     }
 }
