@@ -1,4 +1,4 @@
-name: "Twasi Utilities"
+name: "Utilities"
 main: net.twasiplugin.utilities.Plugin
 author: Twasi Team
 description: Basic Twasi Utilities Plugin.
