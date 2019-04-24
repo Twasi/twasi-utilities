@@ -34,7 +34,7 @@ public class UtilitiesDTO {
     public String getTitle() {
         TwitchAccount user = this.user.getTwitchAccount();
         try {
-            return helix().streams().getStreamsByUser(user.getTwitchId(), 1, new TwitchRequestOptions().withAuth(user.toAuthContext())).getData().get(0).getTitle();
+            return kraken().channels().withAuth(user.toAuthContext()).updateChannel(null, null).getStatus();
         } catch (Throwable t) {
             return null;
         }
@@ -43,7 +43,7 @@ public class UtilitiesDTO {
     public String getGame() {
         TwitchAccount user = this.user.getTwitchAccount();
         try {
-            return helix().streams().getStreamsByUser(user.getTwitchId(), 1, new TwitchRequestOptions().withAuth(user.toAuthContext())).getData().get(0).getGameId();
+            return kraken().channels().withAuth(user.toAuthContext()).updateChannel(null, null).getGame();
         } catch (Throwable t) {
             return null;
         }
