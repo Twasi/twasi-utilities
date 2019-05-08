@@ -22,10 +22,6 @@ permissions:
 
 api: |
   type Utilities {
-    manageGameTitle: ManageGameTitle
-  }
-  
-  type ManageGameTitle {
     updateTitle(title: String): Boolean,
     updateGame(game: String): Boolean,
     updateChannel(title: String, game: String): Boolean,
