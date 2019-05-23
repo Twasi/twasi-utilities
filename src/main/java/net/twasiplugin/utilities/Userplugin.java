@@ -21,24 +21,21 @@ import java.util.List;
 
 public class Userplugin extends TwasiUserPlugin {
 
-    private List<TwasiPluginCommand> commands = new ArrayList<>();
-    private List<TwasiVariable> variables = new ArrayList<>();
-
     public Userplugin() {
         // Register commands
-        commands.add(new Check(this));
-        commands.add(new Game(this));
-        commands.add(new Hosts(this));
-        commands.add(new Title(this));
-        commands.add(new Uptime(this));
-        commands.add(new Wiki(this));
+        registerCommand(Check.class);
+        registerCommand(Game.class);
+        registerCommand(Hosts.class);
+        registerCommand(Title.class);
+        registerCommand(Uptime.class);
+        registerCommand(Wiki.class);
 
         // Register variables
-        variables.add(new ReadAPI(this));
-        variables.add(new Sender(this));
-        variables.add(new User(this));
-        variables.add(new Random(this)); // Random
-        variables.add(new Args(this)); // argument
+        registerVariable(ReadAPI.class);
+        registerVariable(Sender.class);
+        registerVariable(User.class);
+        registerVariable(Random.class);
+        registerVariable(Args.class);
     }
 
     @Override
@@ -53,15 +50,5 @@ public class Userplugin extends TwasiUserPlugin {
         e.getAdminGroup().removeKey("twasi.utilities.streamer.*");
         e.getModeratorsGroup().removeKey("twasi.utilities.mod.*");
         e.getDefaultGroup().removeKey("twasi.utilities.default.*");
-    }
-
-    @Override
-    public List<TwasiPluginCommand> getCommands() {
-        return commands;
-    }
-
-    @Override
-    public List<TwasiVariable> getVariables() {
-        return variables;
     }
 }
