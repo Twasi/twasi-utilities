@@ -22,9 +22,22 @@ permissions:
 
 api: |
   type Utilities {
-    updateTitle(title: String): Boolean,
-    updateGame(game: String): Boolean,
-    updateChannel(title: String, game: String): Boolean,
-    getTitle: String,
-    getGame: String
+    twitchAPI: TwitchAPI
+  }
+
+  type TwitchAPI {
+    retrieve: TwitchAPIRequest,
+    update: TwitchAPIUpdate
+  }
+
+  type TwitchAPIUpdate {
+    title(newTitle: String): Boolean,
+    game(newGame: String): Boolean,
+    channel(newTitle: String, newGame: String): Boolean
+  }
+
+  type TwitchAPIRequest {
+    title: String,
+    game: String,
+    followers: Int
   }
