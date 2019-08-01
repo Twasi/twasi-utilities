@@ -10,6 +10,9 @@ import net.twasi.core.plugin.api.customcommands.TwasiCustomCommandEvent;
 import net.twasi.core.plugin.api.customcommands.TwasiPluginCommand;
 import net.twasiplugin.utilities.Plugin;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Hosts extends TwasiPluginCommand {
 
     public Hosts(TwasiUserPlugin plugin) {
@@ -31,11 +34,14 @@ public class Hosts extends TwasiPluginCommand {
                 event.reply(getTranslation("twasi.utilities.hosts.nohoster", streamer.getDisplayName()));
                 return;
             }
-            String streamerUserNames = "";
-            for (JsonElement elem : streamers) {
-                streamerUserNames += ", " + elem.getAsJsonObject().get("host_display_name").getAsString();
-            }
-            event.reply(getTranslation("twasi.utilities.hosts.success", streamer.getDisplayName(), streamerUserNames.substring(2)));
+
+            List<String> userNames = new ArrayList<>();
+            for (JsonElement elem : streamers)
+                userNames.add(elem.getAsJsonObject().get("host_display_name").getAsString());
+
+            String streamerUserNames = String.join(", ", userNames);
+
+            event.reply(getTranslation("twasi.utilities.hosts.success", streamer.getDisplayName(), streamerUserNames.substring(2), userNames.size()));
         } catch (Exception e) {
             event.reply(getTranslation("twasi.utilities.hosts.failed"));
         }

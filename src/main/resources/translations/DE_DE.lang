@@ -27,7 +27,7 @@ twasi.utilities.uptime.onlinesince.sentence=%s ist bereits seit %s online SeemsG
 twasi.utilities.uptime.onlinesince.spacer=und
 twasi.utilities.uptime.notonline=%s ist doch gar nicht online DansGame
 
-twasi.utilities.hosts.success=Folgende Kanäle hosten %s aktuell: %s <3 SeemsGood
+twasi.utilities.hosts.success=Folgende Kanäle hosten %s aktuell: %s (%d insgesamt) <3 SeemsGood
 twasi.utilities.hosts.nohoster=%s wird aktuell von niemandem gehostet 4Head
 twasi.utilities.hosts.failed=Die Abfrage der aktuell hostenden Streamer war nicht erfolgreich BibleThump
 
