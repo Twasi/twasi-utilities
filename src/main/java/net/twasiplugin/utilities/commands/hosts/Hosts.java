@@ -41,7 +41,7 @@ public class Hosts extends TwasiPluginCommand {
 
             String streamerUserNames = String.join(", ", userNames);
 
-            event.reply(getTranslation("twasi.utilities.hosts.success", streamer.getDisplayName(), streamerUserNames.substring(2), userNames.size()));
+            event.reply(getTranslation("twasi.utilities.hosts.success", streamer.getDisplayName(), streamerUserNames, userNames.size()));
         } catch (Exception e) {
             event.reply(getTranslation("twasi.utilities.hosts.failed"));
         }
